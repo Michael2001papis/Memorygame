@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #f3ec78, #af4261);
+  direction: rtl;
+}
+.top-menu {
+  background-color: #333;
+  padding: 10px 0;
+}
+.top-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.top-menu ul li {
+  margin: 0 15px;
+}
+.top-menu ul li button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+.top-menu ul li button:hover {
+  background-color: #ff4b4b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.top-menu ul li button:active {
+  background-color: #e63e3e;
+  transform: scale(0.95);
+  box-shadow: none;
+}
+main {
+  padding: 20px;
+}
+h1 {
+  color: #fff;
+  font-size: 3rem;
+  margin: 20px 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.controls {
+  margin: 20px 0;
+}
+.controls button {
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.controls button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+.controls button:hover:not(:disabled) {
+  background-color: #1c86ee;
+  transform: scale(1.05);
+}
+.info-panel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-gap: 15px;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 30px;
+}
+.card {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s, background-color 0.3s, box-shadow 0.3s;
+}
+.card.flipped {
+  color: #333;
+  background-color: #f4f4f4;
+  transform: rotateY(180deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.card.matched {
+  background: #1dd1a1;
+  color: #fff;
+  cursor: default;
+  animation: pulse 1s infinite alternate;
+}
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+}
+.card:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.scoreboard-section {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+.scoreboard-section:hover {
+  transform: scale(1.02);
+}
+.scoreboard-section h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+#scoreboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+#scoreboard th, #scoreboard td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+#scoreboard th {
+  background-color: #f7f7f7;
+}
+#reset-scoreboard-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+#reset-scoreboard-btn:hover {
+  background-color: #ff4b4b;
+  transform: scale(1.05);
+}
+.bottom-menu {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.bottom-menu p {
+  margin: 0;
+  font-size: 14px;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+  }
+  .card {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .controls button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .info-panel {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* עיצוב למודאל ניצחון */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-button:hover {
+  color: black;
+}

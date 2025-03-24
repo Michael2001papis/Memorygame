@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  | עידכון אחרון - 23-03-2025 | - משחק זיכרון </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="top-menu">
+    <nav>
+      <ul>
+        <li><button onclick="navigateTo('#')">דף הבית</button></li>
+        <li><button onclick="navigateTo('#')">אודות</button></li>
+        <li><button onclick="navigateTo('#')">משחקים נוספים</button></li>
+        <li><button onclick="navigateTo('#')">צור קשר</button></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>משחק זיכרון</h1>
+    <div class="controls">
+      <button id="start-btn">התחל משחק</button>
+      <button id="pause-btn" disabled>עצור משחק</button>
+      <button id="reset-btn" disabled>איפוס משחק</button>
+    </div>
+    <div class="info-panel">
+      <div id="timer">זמן: 0 שניות</div>
+      <div id="best-time">הזמן הטוב ביותר: --</div>
+    </div>
+    <div class="game-board"></div>
+    <section class="scoreboard-section">
+      <h2>שיאים</h2>
+      <table id="scoreboard">
+        <thead>
+          <tr>
+            <th>מיקום</th>
+            <th>שם שחקן</th>
+            <th>זמן (שניות)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- שורות השיאים מתעדכנות כאן -->
+        </tbody>
+      </table>
+      <button id="reset-scoreboard-btn">איפוס טבלה ונקודות</button>
+    </section>
+  </main>
+  <footer class="bottom-menu">
+    <p>&copy; 2025 משחקי זיכרון. כל הזכויות שמורות.</p>
+  </footer>
+  <!-- קנבס לאפקט קונפטי -->
+  <canvas id="confetti-canvas"></canvas>
+  <!-- מודאל להודעת ניצחון -->
+  <div id="winModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeWinModal()">&times;</span>
+      <p id="winMessage"></p>
+    </div>
+  </div>
+</body>
+</html>
